@@ -1,6 +1,6 @@
 {
   "name": "verify-apple-id-token",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Verifying the Apple idToken",
   "main": "index.js",
   "scripts": {
