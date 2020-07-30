@@ -24,9 +24,6 @@
   "bugs": {
     "url": "https://github.com/stefan-prokop-cz/verify-apple-id-token/issues"
   },
-  "engines": {
-    "node": "12.16.1"
-  },
   "dependencies": {
     "jsonwebtoken": "^8.5.1",
     "jwks-rsa": "^1.7.0"
