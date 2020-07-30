@@ -1,0 +1,20 @@
+language: node_js
+node_js:
+  - '8'
+  - '10'
+  - '11'
+  - '12'
+  - '13'
+  - '14'
+
+script:
+  - npm run build
+
+deploy:
+  - provider: npm
+    email: sprokop1010@seznam.cz
+    skip_cleanup: true
+    api_key: $NPM_TOKEN
+    on:
+      tags: true
+      repo: stefan-prokop-cz/verify-apple-id-token
