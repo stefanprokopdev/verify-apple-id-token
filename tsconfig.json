@@ -5,7 +5,9 @@
     "target": "es5",
     "sourceMap": true,
     "rootDir": "src",
-    "outDir": "dist"
+    "outDir": "dist",
+    "allowJs": true,
+    "declaration": true
   },
   "exclude": [
     "node_modules"
