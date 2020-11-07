@@ -6,7 +6,8 @@
   "scripts": {
     "build": "tsc",
     "test": "jest",
-    "cover": "npm run test -- --collectCoverage"
+    "cover": "npm run test -- --collectCoverage",
+    "prepare": "npm run build"
   },
   "repository": {
     "type": "git",
