@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Verify Apple idToken Token is valid 1`] = `
+Object {
+  "aud": "test.app",
+  "auth_time": 1604620800,
+  "c_hash": "hash",
+  "email": "test@app.com",
+  "email_verified": true,
+  "exp": 1609459200,
+  "iat": 1604707200,
+  "is_private_email": true,
+  "iss": "https://appleid.apple.com",
+  "nonce_supported": true,
+  "sub": "test@app.com",
+}
+`;
