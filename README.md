@@ -1,5 +1,5 @@
 [![Build Status](https://travis-ci.com/stefan-prokop-cz/verify-apple-id-token.svg?branch=master)](https://travis-ci.com/stefan-prokop-cz/verify-apple-id-token)
-[![npm version](https://badge.fury.io/js/verify-apple-id-token.svg)](https://www.npmjs.com/package/verify-apple-id-token)
+[![npm version](https://img.shields.io/npm/v/verify-apple-id-token)](https://www.npmjs.com/package/verify-apple-id-token)
 [![Coverage](https://img.shields.io/codeclimate/coverage/stefan-prokop-cz/verify-apple-id-token.svg?style=flat-square)](https://codeclimate.com/github/stefan-prokop-cz/verify-apple-id-token)
 
 # Verify Apple idToken
