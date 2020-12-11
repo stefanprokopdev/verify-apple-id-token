@@ -25,8 +25,20 @@ npm install verify-apple-id-token
 ```
 
 ## Usage
+### Typescript
 ```typescript
 import verifyAppleToken from 'verify-apple-id-token';
+
+const jwtClaims = await verifyAppleToken({
+    idToken: 'yourIdToken',
+    clientId: 'yourAppleClientId',
+    nonce: 'nonce', // optional
+});
+```
+
+### Javascript
+```javascript
+const verifyAppleToken = require('verify-apple-id-token').default;
 
 const jwtClaims = await verifyAppleToken({
     idToken: 'yourIdToken',
