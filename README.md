@@ -1,6 +1,7 @@
-[![Build Status](https://travis-ci.com/stefan-prokop-cz/verify-apple-id-token.svg?branch=master)](https://travis-ci.com/stefan-prokop-cz/verify-apple-id-token)
+[![Build Status](https://github.com/stefan-prokop-cz/verify-apple-id-token/workflows/Build/badge.svg)](https://github.com/stefan-prokop-cz/verify-apple-id-token/actions)
+[![Publish Status](https://github.com/stefan-prokop-cz/verify-apple-id-token/workflows/Publish/badge.svg)](https://github.com/stefan-prokop-cz/verify-apple-id-token/actions)
 [![npm version](https://img.shields.io/npm/v/verify-apple-id-token)](https://www.npmjs.com/package/verify-apple-id-token)
-[![Coverage](https://img.shields.io/codeclimate/coverage/stefan-prokop-cz/verify-apple-id-token.svg?style=flat-square)](https://codeclimate.com/github/stefan-prokop-cz/verify-apple-id-token)
+[![codecov](https://codecov.io/gh/stefan-prokop-cz/verify-apple-id-token/branch/master/graph/badge.svg?token=TD7C0Z3YA6)](https://codecov.io/gh/stefan-prokop-cz/verify-apple-id-token)
 
 # Verify Apple idToken
 
