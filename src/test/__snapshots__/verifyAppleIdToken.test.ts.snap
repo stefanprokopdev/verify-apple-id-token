@@ -7,7 +7,7 @@ Object {
   "c_hash": "hash",
   "email": "test@app.com",
   "email_verified": true,
-  "exp": 1609459200,
+  "exp": 1609545599,
   "iat": 1604707200,
   "is_private_email": true,
   "iss": "https://appleid.apple.com",
