@@ -1,12 +1,16 @@
+import mockDate from 'mockdate';
 import verifyAppleIdToken from '../index';
 import { APPLE_BASE_URL, JWKS_APPLE_URI } from '../lib/verifyAppleIdToken';
-import { getJwksMock, getToken } from './utils/jwksMock';
+import { EXPIRY_DATE, getJwksMock, getToken } from './utils/jwksMock';
 
 describe('Verify Apple idToken', () => {
     const clientId = 'test.app';
     const email = 'test@app.com';
     const jwksMock = getJwksMock(APPLE_BASE_URL, JWKS_APPLE_URI);
-    beforeAll(() => jwksMock.start());
+    beforeAll(() => {
+        mockDate.set(EXPIRY_DATE);
+        jwksMock.start();
+    });
     afterAll(() => jwksMock.stop());
     it('Token is valid', async () => {
         const token = getToken({
