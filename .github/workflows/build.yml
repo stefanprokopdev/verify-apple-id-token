@@ -1,0 +1,29 @@
+name: Build
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node: [10, 11, 12, 13, 14, 15]
+        
+    name: Node ${{ matrix.node }}
+
+    steps:
+      - name: Setup repo
+        uses: actions/checkout@v2
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v2.1.4
+        with:
+          node-version: ${{ matrix.node }}
+      - run: npm install
+      - run: npm audit --only=prod --audit-level=high
+      - run: npm run build
+      - run: npm run test
