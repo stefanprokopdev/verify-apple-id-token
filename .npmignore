@@ -1,8 +1,9 @@
 node_modules
 package-lock.json
 coverage
-.travis.yml
+.github
 jest.config.js
 tsconfig.json
 cc-test-reporter
 src
+renovate.json
