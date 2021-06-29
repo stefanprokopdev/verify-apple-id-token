@@ -37,13 +37,15 @@ export default async (params: VerifyAppleIdTokenParams) => {
   if (!jwtClaims.iss || jwtClaims.iss !== APPLE_BASE_URL) {
     throw new Error(`The iss does not match the Apple URL - iss: ${jwtClaims.iss} | expected: ${APPLE_BASE_URL}`);
   }
+
   if (
-    (typeof params.clientId === 'string' && jwtClaims.aud !== params.clientId) ||
-    (Array.isArray(params.clientId) && !params.clientId.includes(jwtClaims.aud))
+    (Array.isArray(params.clientId) && params.clientId.includes(jwtClaims.aud)) ||
+    jwtClaims.aud === params.clientId
   ) {
-    throw new Error(
-      `The aud parameter does not include this client - is: ${jwtClaims.aud} | expected: ${params.clientId}`,
-    );
+    return jwtClaims;
   }
-  return jwtClaims;
+
+  throw new Error(
+    `The aud parameter does not include this client - is: ${jwtClaims.aud} | expected: ${params.clientId}`,
+  );
 };
