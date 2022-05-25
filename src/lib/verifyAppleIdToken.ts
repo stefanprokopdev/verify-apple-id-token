@@ -15,7 +15,7 @@ export const getApplePublicKey = async (kid) => {
     cache: true,
     jwksUri: `${APPLE_BASE_URL}${JWKS_APPLE_URI}`,
   });
-  const key: any = await new Promise((resolve, reject) => {
+  const key = await new Promise<jwksClient.SigningKey>((resolve, reject) => {
     client.getSigningKey(kid, (error, result) => {
       if (error) {
         return reject(error);
@@ -23,23 +23,33 @@ export const getApplePublicKey = async (kid) => {
       return resolve(result);
     });
   });
-  return (key.publicKey as jwksClient.CertSigningKey) || (key.rsaPublicKey as jwksClient.RsaSigningKey);
+  return key.getPublicKey()
 };
 
 export default async (params: VerifyAppleIdTokenParams) => {
   const decoded = jwt.decode(params.idToken, { complete: true });
   const { kid, alg } = decoded.header;
+
+  if (alg !== "RS256") {
+    throw new Error(`Unsupported algorithm: ${alg}`);
+  }
+
   const applePublicKey = await getApplePublicKey(kid);
   const jwtClaims = jwt.verify(params.idToken, applePublicKey, {
     algorithms: [alg],
     nonce: params.nonce,
   });
+
+  if (!(jwtClaims instanceof Object)) {
+    throw new Error(`Invalid JWT claims`); 
+  }
+
   if (!jwtClaims.iss || jwtClaims.iss !== APPLE_BASE_URL) {
     throw new Error(`The iss does not match the Apple URL - iss: ${jwtClaims.iss} | expected: ${APPLE_BASE_URL}`);
   }
 
   if (
-    (Array.isArray(params.clientId) && params.clientId.includes(jwtClaims.aud)) ||
+    (Array.isArray(params.clientId) && !Array.isArray(jwtClaims.aud) && params.clientId.includes(jwtClaims.aud)) ||
     jwtClaims.aud === params.clientId
   ) {
     return jwtClaims;

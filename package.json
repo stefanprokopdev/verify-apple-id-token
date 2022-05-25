@@ -13,6 +13,7 @@
     "type": "git",
     "url": "git+https://github.com/stefan-prokop-cz/verify-apple-id-token.git"
   },
+  "files": ["dist"],
   "keywords": [
     "verify",
     "apple",
@@ -36,6 +37,7 @@
   },
   "devDependencies": {
     "@types/jest": "27.5.1",
+    "@types/jsonwebtoken": "^8.5.8",
     "jest": "26.6.3",
     "mock-jwks": "1.0.3",
     "mockdate": "3.0.5",
