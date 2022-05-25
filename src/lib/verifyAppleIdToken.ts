@@ -25,7 +25,7 @@ export default async (params: VerifyAppleIdTokenParams) => {
   const decoded = jwt.decode(params.idToken, { complete: true })
   const { kid, alg } = decoded.header
 
-  if (alg !== 'RS256') {
+  if (alg !== 'ES256') {
     throw new Error(`Unsupported algorithm: ${alg}`)
   }
 
