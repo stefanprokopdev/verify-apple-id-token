@@ -3,22 +3,22 @@ module.exports = {
     es2021: true,
     node: true,
   },
-  extends: ['airbnb-base', 'airbnb-typescript/base', 'prettier'],
-  parser: '@typescript-eslint/parser',
+  extends: ["airbnb-base", "airbnb-typescript/base", "prettier"],
+  parser: "@typescript-eslint/parser",
   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: './tsconfig.json',
+    ecmaVersion: "latest",
+    sourceType: "module",
+    project: "./tsconfig.json",
   },
-  plugins: ['prettier'],
+  plugins: ["prettier"],
   rules: {
-    'prettier/prettier': 'error',
+    "prettier/prettier": "error",
   },
   settings: {
-    'import/resolver': {
+    "import/resolver": {
       node: {
-        extensions: ['.js', '.jsx', '.ts', '.tsx'],
+        extensions: [".js", ".jsx", ".ts", ".tsx"],
       },
     },
   },
-}
+};
