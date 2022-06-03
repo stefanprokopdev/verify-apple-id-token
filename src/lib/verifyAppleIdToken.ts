@@ -25,13 +25,9 @@ export async function verifyToken(params: VerifyAppleIdTokenParams) {
   const decoded = jwt.decode(params.idToken, { complete: true });
   const { kid, alg } = decoded.header;
 
-  if (alg !== "RS256") {
-    throw new Error(`Unsupported algorithm: ${alg}`);
-  }
-
   const applePublicKey = await getApplePublicKey(kid);
   const jwtClaims = jwt.verify(params.idToken, applePublicKey, {
-    algorithms: [alg],
+    algorithms: [alg as jwt.Algorithm],
     nonce: params.nonce,
   }) as VerifyAppleIdTokenResponse;
 
