@@ -54,20 +54,6 @@ const jwtClaims = await verifyAppleToken({
 });
 ```
 
-## Exports
-
-### Methods
-
-- `verifyToken` - default
-- `getApplePublicKey`
-
-### Types
-
-- `VerifyAppleIdTokenParams`
-- `VerifyAppleIdTokenResponse`
-- `VerifyAppleIdTokenPayload`
-- `PJwtPayload`
-
 ## License
 
 [MIT](./LICENSE)
