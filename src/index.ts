@@ -1,7 +1,5 @@
-import {
-  default as verifyToken,
-  getApplePublicKey,
-} from './lib/verifyAppleIdToken'
+import { verifyToken, getApplePublicKey } from './lib/verifyAppleIdToken'
+
 export * from './lib/types'
 
 export default verifyToken

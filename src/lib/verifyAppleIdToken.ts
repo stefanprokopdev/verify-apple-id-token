@@ -21,7 +21,7 @@ export const getApplePublicKey = async (kid: string) => {
   return key.getPublicKey()
 }
 
-export default async (params: VerifyAppleIdTokenParams) => {
+export async function verifyToken(params: VerifyAppleIdTokenParams) {
   const decoded = jwt.decode(params.idToken, { complete: true })
   const { kid, alg } = decoded.header
 
