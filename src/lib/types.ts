@@ -6,11 +6,6 @@ export interface VerifyAppleIdTokenParams {
   nonce?: string;
 }
 
-export type PJwtPayload = Pick<
-  JwtPayload,
-  "iss" | "iat" | "sub" | "aud" | "exp"
->;
-
 export interface VerifyAppleIdTokenPayload {
   /**
    * A String value used to associate a client session and the identity token. This value mitigates replay attacks and is present only if passed during the authorization request.
@@ -48,5 +43,4 @@ export interface VerifyAppleIdTokenPayload {
   transfer_sub: string;
 }
 
-export type VerifyAppleIdTokenResponse = PJwtPayload &
-  VerifyAppleIdTokenPayload;
+export type VerifyAppleIdTokenResponse = JwtPayload & VerifyAppleIdTokenPayload;
