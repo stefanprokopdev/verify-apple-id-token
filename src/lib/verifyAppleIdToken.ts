@@ -37,12 +37,11 @@ export const verifyToken = async (params: VerifyAppleIdTokenParams) => {
     );
   }
 
-  if (
-    (Array.isArray(params.clientId) &&
-      !Array.isArray(jwtClaims.aud) &&
-      params.clientId.includes(jwtClaims.aud)) ||
-    jwtClaims.aud === params.clientId
-  ) {
+  const isFounded = []
+    .concat(jwtClaims.aud)
+    .some((_) => [].concat(params.clientId).includes(_));
+
+  if (isFounded) {
     return jwtClaims;
   }
 
