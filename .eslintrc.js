@@ -13,6 +13,10 @@ module.exports = {
   plugins: ["prettier"],
   rules: {
     "prettier/prettier": "error",
+    "import/no-extraneous-dependencies": [
+      "error",
+      { devDependencies: ["src/test/**"] },
+    ],
   },
   settings: {
     "import/resolver": {

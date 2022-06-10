@@ -8,8 +8,8 @@
     "test": "jest",
     "cover": "npm run test -- --collectCoverage",
     "prepare": "npm run build",
-    "lint": "eslint --fix src/index.ts",
-    "format": "prettier -w ."
+    "lint": "eslint src/** --fix --ext .ts,.js",
+    "format": "prettier -w ./src"
   },
   "repository": {
     "type": "git",

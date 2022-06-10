@@ -19,6 +19,7 @@ export const getJwksMock = (iss: string, path?: string) => mockJwks(iss, path);
 
 export const getToken = (params: TokenParams, jwksMock?: JWKSMock) => {
   if (!jwksMock) {
+    // eslint-disable-next-line no-param-reassign
     jwksMock = getJwksMock(APPLE_BASE_URL, JWKS_APPLE_URI);
   }
   return jwksMock.token({
