@@ -21,7 +21,7 @@ export const getApplePublicKey = async (kid: string) => {
   return key.getPublicKey();
 };
 
-export async function verifyToken(params: VerifyAppleIdTokenParams) {
+export const verifyToken = async (params: VerifyAppleIdTokenParams) => {
   const decoded = jwt.decode(params.idToken, { complete: true });
   const { kid, alg } = decoded.header;
 
@@ -49,4 +49,4 @@ export async function verifyToken(params: VerifyAppleIdTokenParams) {
   throw new Error(
     `The aud parameter does not include this client - is: ${jwtClaims.aud} | expected: ${params.clientId}`
   );
-}
+};
