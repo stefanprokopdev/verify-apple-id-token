@@ -39,7 +39,7 @@ export const verifyToken = async (params: VerifyAppleIdTokenParams) => {
 
   const isFounded = []
     .concat(jwtClaims.aud)
-    .some((_) => [].concat(params.clientId).includes(_));
+    .some((aud) => [].concat(params.clientId).includes(aud));
 
   if (isFounded) {
     return jwtClaims;
