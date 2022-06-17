@@ -42,6 +42,12 @@ export const verifyToken = async (params: VerifyAppleIdTokenParams) => {
     .some((aud) => [].concat(params.clientId).includes(aud));
 
   if (isFounded) {
+    ["email_verified", "is_private_email"].forEach((field) => {
+      if (jwtClaims[field] !== undefined) {
+        jwtClaims[field] = Boolean(jwtClaims[field]);
+      }
+    });
+
     return jwtClaims;
   }
 
