@@ -47,3 +47,7 @@ const jwtClaims = await verifyAppleToken({
     nonce: 'nonce', // optional
 });
 ```
+
+## Contribution
+
+Thank you for your interest in contributing to `verify-apple-id-token`! Please see the [CONTRIBUTING.md](./CONTRIBUTING.md) to learn how to do it!
