@@ -54,6 +54,10 @@ const jwtClaims = await verifyAppleToken({
 });
 ```
 
+## Contribution
+
+Thank you for your interest in contributing to `verify-apple-id-token`! Please see the [CONTRIBUTING.md](./CONTRIBUTING.md) to learn how to do it!
+
 ## License
 
 [MIT](./LICENSE)
