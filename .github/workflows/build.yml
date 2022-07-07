@@ -25,5 +25,6 @@ jobs:
           node-version: ${{ matrix.node }}
       - run: npm install
       - run: npm audit --only=prod --audit-level=high
+      - run: npm run lint
       - run: npm run build
       - run: npm run test
