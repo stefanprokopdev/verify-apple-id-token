@@ -27,4 +27,4 @@ jobs:
       - run: npm audit --only=prod --audit-level=high
       - run: npm run lint
       - run: npm run build
-      - run: npm run test
+      - run: npm run cover
