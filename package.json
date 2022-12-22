@@ -36,7 +36,7 @@
     "url": "https://github.com/stefan-prokop-cz/verify-apple-id-token/issues"
   },
   "dependencies": {
-    "jsonwebtoken": "^8.5.1",
+    "jsonwebtoken": "^9.0.0",
     "jwks-rsa": "^3.0.0"
   },
   "devDependencies": {
