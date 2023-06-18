@@ -98,7 +98,7 @@ describe("Verify Apple idToken", () => {
       );
       await verifyAppleIdToken({ idToken, clientId });
     } catch (error) {
-      return expect(error.message).toMatch(/jwt expired/);
+      return expect(error.message).toMatch(/"exp" claim timestamp check failed/);
     }
     throw new Error("Expected to throw");
   });
@@ -116,7 +116,7 @@ describe("Verify Apple idToken", () => {
       );
       await verifyAppleIdToken({ idToken, clientId, nonce: "def" });
     } catch (error) {
-      return expect(error.message).toMatch(/jwt nonce invalid/);
+      return expect(error.message).toMatch(/The nonce parameter does not match/);
     }
     throw new Error("Expected to throw");
   });
