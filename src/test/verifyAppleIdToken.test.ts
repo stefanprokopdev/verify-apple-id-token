@@ -59,9 +59,7 @@ describe("Verify Apple idToken", () => {
       );
       await verifyAppleIdToken({ clientId, idToken });
     } catch (error) {
-      return expect(error.message).toMatch(
-        /The iss does not match the Apple URL/
-      );
+      return expect(error.message).toMatch(/The iss does not match the Apple URL/);
     }
     throw new Error("Expected to throw");
   });
@@ -78,9 +76,7 @@ describe("Verify Apple idToken", () => {
       );
       await verifyAppleIdToken({ idToken, clientId: "test" });
     } catch (error) {
-      return expect(error.message).toMatch(
-        /The aud parameter does not include this client/
-      );
+      return expect(error.message).toMatch(/The aud parameter does not include this client/);
     }
     throw new Error("Expected to throw");
   });
