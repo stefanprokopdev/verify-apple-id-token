@@ -36,12 +36,10 @@
     "url": "https://github.com/stefan-prokop-cz/verify-apple-id-token/issues"
   },
   "dependencies": {
-    "jsonwebtoken": "^9.0.0",
-    "jwks-rsa": "^3.0.0"
+    "jose": "^4.14.4"
   },
   "devDependencies": {
     "@types/jest": "29.5.2",
-    "@types/jsonwebtoken": "^9.0.0",
     "@typescript-eslint/eslint-plugin": "^5.27.0",
     "@typescript-eslint/parser": "^5.27.0",
     "eslint": "^8.16.0",
