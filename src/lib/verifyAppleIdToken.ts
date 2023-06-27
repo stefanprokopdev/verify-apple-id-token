@@ -21,7 +21,7 @@ export const verifyToken = async (params: VerifyAppleIdTokenParams) => {
   const { payload: jwtClaims } = await jwtVerify(params.idToken, applePublicKey);
 
   if ((jwtClaims?.nonce ?? undefined) !== params.nonce) {
-    throw new Error(`The nonce parameter does not match - nonce: ${jwtClaims.nonce} | expected: ${params.nonce}`);
+    throw new Error(`The nonce parameter does not match`);
   }
 
   if (jwtClaims?.iss !== APPLE_BASE_URL) {
