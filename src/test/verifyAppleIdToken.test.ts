@@ -21,7 +21,7 @@ describe("Verify Apple idToken", () => {
         aud: clientId,
         sub: email,
       },
-      jwksMock
+      jwksMock,
     );
     const claims = await verifyAppleIdToken({ clientId, idToken: token });
     expect(claims.email).toEqual(email);
@@ -36,7 +36,7 @@ describe("Verify Apple idToken", () => {
         aud: secondClientId,
         sub: email,
       },
-      jwksMock
+      jwksMock,
     );
     const claims = await verifyAppleIdToken({
       clientId: [clientId, secondClientId],
@@ -55,13 +55,11 @@ describe("Verify Apple idToken", () => {
           aud: clientId,
           iss: "test.iss",
         },
-        jwksMock
+        jwksMock,
       );
       await verifyAppleIdToken({ clientId, idToken });
     } catch (error) {
-      return expect(error.message).toMatch(
-        /The iss does not match the Apple URL/
-      );
+      return expect(error.message).toMatch(/The iss does not match the Apple URL/);
     }
     throw new Error("Expected to throw");
   });
@@ -74,13 +72,11 @@ describe("Verify Apple idToken", () => {
           aud: clientId,
           sub: "sub",
         },
-        jwksMock
+        jwksMock,
       );
       await verifyAppleIdToken({ idToken, clientId: "test" });
     } catch (error) {
-      return expect(error.message).toMatch(
-        /The aud parameter does not include this client/
-      );
+      return expect(error.message).toMatch(/The aud parameter does not include this client/);
     }
     throw new Error("Expected to throw");
   });
@@ -94,7 +90,7 @@ describe("Verify Apple idToken", () => {
           iss: APPLE_BASE_URL,
           exp: new Date("2019-01-01"),
         },
-        jwksMock
+        jwksMock,
       );
       await verifyAppleIdToken({ idToken, clientId });
     } catch (error) {
@@ -112,7 +108,7 @@ describe("Verify Apple idToken", () => {
           iss: APPLE_BASE_URL,
           nonce: "abc",
         },
-        jwksMock
+        jwksMock,
       );
       await verifyAppleIdToken({ idToken, clientId, nonce: "def" });
     } catch (error) {

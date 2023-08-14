@@ -32,14 +32,10 @@ export const verifyToken = async (params: VerifyAppleIdTokenParams) => {
   }) as VerifyAppleIdTokenResponse;
 
   if (jwtClaims?.iss !== APPLE_BASE_URL) {
-    throw new Error(
-      `The iss does not match the Apple URL - iss: ${jwtClaims.iss} | expected: ${APPLE_BASE_URL}`
-    );
+    throw new Error(`The iss does not match the Apple URL - iss: ${jwtClaims.iss} | expected: ${APPLE_BASE_URL}`);
   }
 
-  const isFounded = []
-    .concat(jwtClaims.aud)
-    .some((aud) => [].concat(params.clientId).includes(aud));
+  const isFounded = [].concat(jwtClaims.aud).some((aud) => [].concat(params.clientId).includes(aud));
 
   if (isFounded) {
     ["email_verified", "is_private_email"].forEach((field) => {
@@ -51,7 +47,5 @@ export const verifyToken = async (params: VerifyAppleIdTokenParams) => {
     return jwtClaims;
   }
 
-  throw new Error(
-    `The aud parameter does not include this client - is: ${jwtClaims.aud} | expected: ${params.clientId}`
-  );
+  throw new Error(`The aud parameter does not include this client - is: ${jwtClaims.aud} | expected: ${params.clientId}`);
 };
