@@ -35,7 +35,7 @@ import verifyAppleToken from "verify-apple-id-token";
 
 const jwtClaims = await verifyAppleToken({
   idToken: "yourIdToken",
-  clientId: "yourAppleClientId",
+  clientId: "yourAppleClientId", // or ["app1ClientId", "app2ClientId"]
   nonce: "nonce", // optional
 });
 
@@ -49,7 +49,7 @@ const verifyAppleToken = require("verify-apple-id-token").default;
 
 const jwtClaims = await verifyAppleToken({
   idToken: "yourIdToken",
-  clientId: "yourAppleClientId",
+  clientId: "yourAppleClientId",  // or ["app1ClientId", "app2ClientId"]
   nonce: "nonce", // optional
 });
 ```
