@@ -5,7 +5,7 @@ import { VerifyAppleIdTokenParams, VerifyAppleIdTokenResponse } from "./types";
 export const APPLE_BASE_URL = "https://appleid.apple.com";
 export const JWKS_APPLE_URI = "/auth/keys";
 
-export const getApplePublicKey = async (kid: string) => {
+export const getAppleJWK = async (kid: string) => {
   const client = jwksClient({
     cache: true,
     jwksUri: `${APPLE_BASE_URL}${JWKS_APPLE_URI}`,
@@ -18,16 +18,31 @@ export const getApplePublicKey = async (kid: string) => {
       return resolve(result);
     });
   });
-  return key.getPublicKey();
+  return {
+    publicKey: key.getPublicKey(),
+    kid: key.kid,
+    alg: key.alg,
+  };
+};
+
+export const getApplePublicKey = async (kid: string) => {
+  const jwk = await getAppleJWK(kid);
+
+  return jwk.publicKey;
 };
 
 export const verifyToken = async (params: VerifyAppleIdTokenParams) => {
   const decoded = jwt.decode(params.idToken, { complete: true });
-  const { kid, alg } = decoded.header;
+  const { kid, alg: jwtAlg } = decoded.header;
 
-  const applePublicKey = await getApplePublicKey(kid);
-  const jwtClaims = jwt.verify(params.idToken, applePublicKey, {
-    algorithms: [alg as jwt.Algorithm],
+  const { publicKey, alg: jwkAlg } = await getAppleJWK(kid);
+
+  if (jwtAlg !== jwkAlg) {
+    throw new Error(`The alg does not match the jwk configuration - alg: ${jwtAlg} | expected: ${jwkAlg}`);
+  }
+
+  const jwtClaims = jwt.verify(params.idToken, publicKey, {
+    algorithms: [jwkAlg as jwt.Algorithm],
     nonce: params.nonce,
   }) as VerifyAppleIdTokenResponse;
 
