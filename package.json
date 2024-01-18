@@ -15,7 +15,9 @@
     "type": "git",
     "url": "git+https://github.com/stefan-prokop-cz/verify-apple-id-token.git"
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "keywords": [
     "verify",
     "apple",
