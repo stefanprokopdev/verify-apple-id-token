@@ -15,9 +15,7 @@
     "type": "git",
     "url": "git+https://github.com/stefan-prokop-cz/verify-apple-id-token.git"
   },
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
   "keywords": [
     "verify",
     "apple",
@@ -36,12 +34,12 @@
     "url": "https://github.com/stefan-prokop-cz/verify-apple-id-token/issues"
   },
   "dependencies": {
-    "@types/jsonwebtoken": "^9.0.5",
     "jsonwebtoken": "^9.0.2",
     "jwks-rsa": "^3.1.0"
   },
   "devDependencies": {
     "@types/jest": "29.5.11",
+    "@types/jsonwebtoken": "^9.0.5",
     "@typescript-eslint/eslint-plugin": "^6.16.0",
     "@typescript-eslint/parser": "^6.16.0",
     "eslint": "^8.56.0",
